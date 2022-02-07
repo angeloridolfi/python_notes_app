@@ -15,11 +15,12 @@ def click():
     nome_nota.pack()
 
     def aoclicar():
-        notas['text'] = f'{nome_nota.get()}\n' + esc.get()
+        n = Label(main, text=nome_nota.get() + '\n' + esc.get(), fg='black', bg='light gray', font='Arial_Black 15 italic')
+        n.place(x=400, y=70)
 
     clique.configure(background='light blue')
     clique.geometry('300x300')
-    digit = Label(clique, text="Digite sua nota:", font="Impact 13 italic", fg='blue', bg='lightblue')
+    digit = Label(clique, text="Descrição da sua nota:", font="Impact 13 italic", fg='blue', bg='lightblue')
     digit.pack()
     esc = Entry(clique)
     esc.pack()
@@ -32,7 +33,7 @@ Label(main, text="NoteAPP", font='Times_New_Roman 20 bold underline', fg='white'
 Button(main, text="Adicionar uma nota", fg='white', bg='red', command=click).place(x=0, y=50)
 
 
-notas = Label(main, text='', font='Impact 20')
-notas.pack()
+# notas = Label(main, text='', font='Impact 20')
+# notas.pack()
 
 main.mainloop()
