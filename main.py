@@ -1,40 +1,38 @@
 from tkinter import *
-from random import randint
-
-
-def nota():
-    def aoclicar():
-        while True:
-            cont = 1
-            #notes["text"] += f"\nNota {cont}:\n" + entry.get()  # <<<===== TENTAR ARRUMAR!
-            cont += 1
-            if nota():
-                break
-
-    entrada = Tk()
-    entrada.title("Adicionar uma nota!")
-    entrada.geometry('200x100')
-    digit = Label(entrada, text="Digite aqui:")
-    digit.pack()
-    entry = Entry(entrada)
-    entry.pack()
-    anota = Button(entrada, text="ADICIONAR", bg="red", fg="white", command=aoclicar)
-    anota.pack()
-    entrada.mainloop()
-
-
+# from random import randint
 
 main = Tk()
-main.geometry("800x600")
 main.title("Notas")
-titulo = Label(text="Hello World!", font="impact 20 bold")
-titulo.pack()
+main.geometry("800x600")
+main.configure(background='dark blue')
 
-add_note = Button(main, text="Adicionar uma nota", bg="red", fg="white", command=nota)
-add_note.pack()
 
-#notes = Label(main, text="", font="arial 20 italic", fg=cores[color_random])
-#notes.pack()
+def click():
+    clique = Tk()
+    nomenota = Label(clique, text="Nome da sua nota", font="Impact 13 italic", fg='blue', bg='lightblue')
+    nomenota.pack()
+    nome_nota = Entry(clique)
+    nome_nota.pack()
 
-color_random = randint(0, 4)
+    def aoclicar():
+        notas['text'] = f'{nome_nota.get()}\n' + esc.get()
+
+    clique.configure(background='light blue')
+    clique.geometry('300x300')
+    digit = Label(clique, text="Digite sua nota:", font="Impact 13 italic", fg='blue', bg='lightblue')
+    digit.pack()
+    esc = Entry(clique)
+    esc.pack()
+    Button(clique, text="Adicionar", command=aoclicar).pack()
+    clique.mainloop()
+
+
+Label(main, text="Notas:", font="Times_New_Roman 20 bold underline", fg='light blue', bg='darkblue').place(x=420, y=0)
+Label(main, text="NoteAPP", font='Times_New_Roman 20 bold underline', fg='white', bg='dark blue').place(x=0, y=0)
+Button(main, text="Adicionar uma nota", fg='white', bg='red', command=click).place(x=0, y=50)
+
+
+notas = Label(main, text='', font='Impact 20')
+notas.pack()
+
 main.mainloop()
