@@ -1,22 +1,26 @@
 from tkinter import *
+from tkinter import scrolledtext
 # from random import randint
 
 main = Tk()
 main.title("Notas")
 main.geometry("800x600")
-main.configure(background='dark blue')
+main.configure(background='light salmon')
 
 
 def click():
     clique = Tk()
+    clique.title("ADICIONAR NOTA!")
     nomenota = Label(clique, text="Nome da sua nota", font="Impact 13 italic", fg='blue', bg='lightblue')
     nomenota.pack()
     nome_nota = Entry(clique)
     nome_nota.pack()
 
     def aoclicar():
-        n = Label(main, text=nome_nota.get() + '\n' + esc.get(), fg='black', bg='light gray', font='Arial_Black 15 italic')
-        n.place(x=400, y=70)
+        n = scrolledtext.ScrolledText(main, width=30, height=5)
+        n.configure(font="Gothic 15 bold", background='lightcyan')
+        n.insert(INSERT, nome_nota.get() + '\n' + esc.get())
+        n.pack()
 
     clique.configure(background='light blue')
     clique.geometry('300x300')
@@ -28,8 +32,8 @@ def click():
     clique.mainloop()
 
 
-Label(main, text="Notas:", font="Times_New_Roman 20 bold underline", fg='light blue', bg='darkblue').place(x=420, y=0)
-Label(main, text="NoteAPP", font='Times_New_Roman 20 bold underline', fg='white', bg='dark blue').place(x=0, y=0)
+Label(main, text="Notas:", font="Times_New_Roman 20 bold underline", fg='white', bg='lightsalmon').pack()
+Label(main, text="NoteAPP", font='Times_New_Roman 20 bold underline', fg='white', bg='lightsalmon').place(x=0, y=0)
 Button(main, text="Adicionar uma nota", fg='white', bg='red', command=click).place(x=0, y=50)
 
 
